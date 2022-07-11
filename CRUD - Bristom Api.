@@ -1,0 +1,319 @@
+CRUD - Bristom Api.
+
+
+👉 Login && Logout. {
+ 
+    📑 auth 
+    💬 Função de Login. 
+    📂 controllers/UserController.index
+    🔗 https://api.bristom.com/auth
+    🕸️ POST
+    🖊️ const { type, app } = req.body;
+
+        valid_types = ['api', 'web', 'mobile'];
+        mobile_apps = ['ultralog-collector', 'bristom-pro'];
+
+    📑 logout 
+    💬 Função de Logout. 
+    📂 controllers/UserController.logout
+    🔗 https://api.bristom.com/logout
+    🕸️ POST
+    🖊️ const { user_id, type, app } = req.body;
+
+        valid_types = ['api', 'web', 'mobile'];
+        mobile_apps = ['ultralog-collector', 'bristom-pro'];
+        user_id = ['Id do usuário no banco remoto']
+        }
+
+👉 User (Usuário) {
+
+    📑 store
+    💬 Cria novos usuários
+    📂 controllers/UserController.store
+    🔗 https://api.bristom.com/users
+    🕸️ POST  
+    🖊️ const { email, phone, password, name, role, prop } = req.body;
+
+        roles = ['admin', 'user', 'integrator', 'system'];
+        prop = ['id de uma propriedade, Caso possuir, Já cria a associação em PropertiesUsers'];
+        email = ['item obrigatório', 'example@example.com' ];
+        phone = ['item obrigatório', '+5562111111111' ];
+        password = ['item obrigatório', 'example.1' ];
+        
+
+    📑 index
+    💬 Retorna uma lista com todos os usuários. 
+    📂 UserController.index
+    🔗 https://api.bristom.com/users
+    🕸️ GET
+    🖊️ --
+
+
+    📑 show
+    💬 Retorna um usuários correspondente ao id informado.
+    📂 controllers/UserController.show
+    🔗 https://api.bristom.com/users/:user_id
+    🕸️ GET 
+    🖊️ const { user_id } = req.params;
+
+        user_id = ['Id do usuário no banco remoto'];
+
+
+    📑 update
+    💬 Modifica informações de algum usuário.
+    📂 controllers/UserController.update
+    🔗 https://api.bristom.com/users/:user_id
+    🕸️ PUT 
+    🖊️ const { email, phone, password, role, profile_picture, name } = req.body;
+       const { user_id } = req.params;
+
+        email = ['Novo email', 'example@example.com' ];
+        phone = ['Novo phone', '+5562111111111' ];
+        password = ['Nova senha', 'example.1' ];        
+        roles = ['admin', 'user', 'integrator', 'system'];
+        user_id = ['Id do usuário no banco remoto'];
+        name = ['Novo nome'];
+
+
+    📑 delete
+    💬 Deleta o usuário correspondente ao id informado.
+    📂 controllers/UserController.delete
+    🔗 https://api.bristom.com/users/:user_id
+    🕸️ DELETE 
+    🖊️ const { user_id } = req.params;
+
+        user_id = ['Id do usuário no banco remoto'];
+
+
+    📑 updatePassword
+    💬 Modifica a senha do usuário correspondente ao id informado.
+    📂 controllers/UserController.updatePassword
+    🔗 https://api.bristom.com/users/:user_id
+    🕸️ PATCH 
+    🖊️ const { user_id } = req.params;
+       const { password } = req.body;
+
+        user_id = ['Id do usuário no banco remoto'];
+        password = ['Nova senha'];
+
+
+
+    📑 invite
+    💬 Envia um email para cadastro de novo usuario pra email de cliente, O cadastro já está associado a propriedade informada.
+    📂 controllers/UserController.updatePassword
+    🔗 https://api.bristom.com/users/:inviteuser_id
+    🕸️ PATCH 
+    🖊️ const { email, property, name } = req.body;
+
+        property = ['item obrigatório', 'id da propriedade recém criada pelo técnico'];
+        email = ['item obrigatório', 'example@example.com' ];
+        name = ['item obrigatório', 'nome do cliente' ];
+        }
+        
+👉 Location (Propriedade) {
+
+    📑 store
+    💬 Cria novas propriedades
+    📂 controllers/LocationController.store
+    🔗 https://api.bristom.com/locations
+    🕸️ POST  
+    🖊️ const { name, latitude, longitude, has_bomb, user_id, state } = req.body;
+
+        name = ['item obrigatório', 'nome da propriedade'];
+        latitude/longitude = ['Local da propriedade', '-16.87299919128418'];
+        has_bomb = ['item obrigatório', 'booleano que indica se a propriedade possui bomba ou não' ];
+        user_id = ['item obrigatório', 'id do usuario no banco remoto' ];
+        state = ['item obrigatório', 'GO','DF'... ];
+        
+
+    📑 index
+    💬 Retorna todos as propriedades do usuário logado. 
+    📂 controllers/LocationController.index
+    🔗 https://api.bristom.com/locations
+    🕸️ GET
+    🖊️  const { id: user_id } = req.payload;
+		const { active } = req.query;
+
+         active = ['Filtra as propriedades por ativas ou por todas.'];
+
+
+    📑 show
+    💬 Retorna uma propriedade correspondente ao id informado.
+    📂 controllers/.show
+    🔗 https://api.bristom.com/locations/:id
+    🕸️ GET 
+    🖊️ const { id } = req.params;
+
+        id = ['Id da propriedade no banco remoto'];
+
+
+    📑 update
+    💬 Modifica informações de alguma propriedade.
+    📂 controllers/LocationController.update
+    🔗 https://api.bristom.com/locations/:id
+    🕸️ PUT 
+    🖊️ const { name, has_bomb, state, active, lat, lon } = req.body;
+	   const { role } = req.payload as UserToken;
+	   const { id } = req.params;
+
+        name = ['Novo nome'];
+        has_bomb = ['booleano que indica se a propriedade possui bomba ou não' ];
+        state = ['Novo estado', 'DF' ];
+        active = ['Novo phone', '+5562111111111' ];
+        password = ['booleano que indica se a propriedade possui bomba ou não' ];
+        lat/lon =  ['Local da propriedade', '-16.87299919128418'];        
+        
+        roles = ['admin', 'user', 'integrator', 'system'];
+        
+        id = ['Id da propriedade no banco remoto'];
+
+
+    📑 delete
+    💬 Deleta a propriedade correspondente ao id informado.
+    📂 controllers/LocationController.delete
+    🔗 https://api.bristom.com/users/user_id
+    🕸️ DELETE 
+    🖊️ const { id } = req.params;
+
+        user_id = ['Id da propriedade no banco remoto'];
+
+
+    📑 fullIndex
+    💬 retorna todas as propriedades.
+    📂 controllers/LocationController.fullIndex
+    🔗 https://api.bristom.com/weather/locations
+    🕸️ GET
+    🖊️ --
+
+
+    📑 associate
+    💬 Associa um Usuario a uma propriedade.
+    📂 controllers/LocationController.associate
+    🔗 https://api.bristom.com/associate/property
+    🕸️ POST 
+    🖊️ const { user_id, prop_id } = req.body;
+
+        prop_id = ['item obrigatório', 'id da propriedade'];
+        user_id = ['item obrigatório', 'example@example.com'];
+        }
+
+
+    📑 status
+    💬 Verifica se já existe uma propriedade com esses dados.
+    📂 controllers/LocationController.associate
+    🔗 https://api.bristom.com/locations
+    🕸️ PATCH 
+    🖊️ const { name, latitude, longitude, state, has_bomb } = req.body;
+
+        name = ['item obrigatório', 'nome da Propriedade'];
+        latitude = ['item obrigatório', 'Local da propriedade ex: -16.87299919128418'];
+        longitude = ['item obrigatório', 'Local da propriedade ex: -16.87299919128418'];
+        state = ['item obrigatório', 'GO','DF',...];
+        has_bomb = ['item obrigatório', 'booleano'];
+        }
+ 
+👉 Equipments (Equipamentos) {
+
+    ⚠️ Todos os equipamentos que não estão associados a uma propriedade são criados pelo método EquipmentsController.store, e posteriormente podem ser associados a uma propriedade por meio 
+    do método  EquipmentsController.associate. 
+       Equipamentos que são criados por métodos próprios como GatewayController.store, necessitam
+    de uma propriedade, até então todo equipamento cadastrado consta na tabela de equipments no 
+    banco remoto e ao ser associado a uma propriedade passará a existir em sua propria tabela, 
+    "gateways, stus, ultralog e etc..."
+
+    📑 store
+    💬 Cria novos equipamentos
+    📂 controllers/EquipmentsController.store
+    🔗 https://api.bristom.com/equipments
+    🕸️ POST  
+    🖊️ const { chip_id, mac, series_number } = req.body;
+
+        chip_id = ['item obrigatório', 'Numero de chip id do equipamento'];
+        mac = ['item obrigatório', 'mac sta do equipamento,(para ultralogs utilizar mac ble)'];
+        series_number = ['item obrigatório', 'Numero de serie do equipamento, identifica o equipamento
+        com base na sigla que acompanha (MP|GW|ST|SL|SP|GP|UL)' ];
+        
+
+❗❗📑 index
+    💬 Retorna todos os equipamentos. 
+    📂 controllers/EquipmentsController.index
+    🔗 https://api.bristom.com/locations
+    🕸️ GET
+    🖊️  
+
+
+    📑 show
+    💬 Retorna uma propriedade correspondente ao id informado.
+    📂 controllers/.show
+    🔗 https://api.bristom.com/locations/:id
+    🕸️ GET 
+    🖊️ const { id } = req.params;
+
+        id = ['Id da propriedade no banco remoto'];
+
+
+    📑 update
+    💬 Modifica informações de alguma propriedade.
+    📂 controllers/LocationController.update
+    🔗 https://api.bristom.com/locations/:id
+    🕸️ PUT 
+    🖊️ const { name, has_bomb, state, active, lat, lon } = req.body;
+	   const { role } = req.payload as UserToken;
+	   const { id } = req.params;
+
+        name = ['Novo nome'];
+        has_bomb = ['booleano que indica se a propriedade possui bomba ou não' ];
+        state = ['Novo estado', 'DF' ];
+        active = ['Novo phone', '+5562111111111' ];
+        password = ['booleano que indica se a propriedade possui bomba ou não' ];
+        lat/lon =  ['Local da propriedade', '-16.87299919128418'];        
+        
+        roles = ['admin', 'user', 'integrator', 'system'];
+        
+        id = ['Id da propriedade no banco remoto'];
+
+
+    📑 delete
+    💬 Deleta a propriedade correspondente ao id informado.
+    📂 controllers/LocationController.delete
+    🔗 https://api.bristom.com/users/user_id
+    🕸️ DELETE 
+    🖊️ const { id } = req.params;
+
+        user_id = ['Id da propriedade no banco remoto'];
+
+
+    📑 fullIndex
+    💬 retorna todas as propriedades.
+    📂 controllers/LocationController.fullIndex
+    🔗 https://api.bristom.com/weather/locations
+    🕸️ GET
+    🖊️ --
+
+
+    📑 associate
+    💬 Associa um Usuario a uma propriedade.
+    📂 controllers/LocationController.associate
+    🔗 https://api.bristom.com/associate/property
+    🕸️ POST 
+    🖊️ const { user_id, prop_id } = req.body;
+
+        prop_id = ['item obrigatório', 'id da propriedade'];
+        user_id = ['item obrigatório', 'example@example.com'];
+        }
+
+
+    📑 status
+    💬 Verifica se já existe uma propriedade com esses dados.
+    📂 controllers/LocationController.associate
+    🔗 https://api.bristom.com/locations
+    🕸️ PATCH 
+    🖊️ const { name, latitude, longitude, state, has_bomb } = req.body;
+
+        name = ['item obrigatório', 'nome da Propriedade'];
+        latitude = ['item obrigatório', 'Local da propriedade ex: -16.87299919128418'];
+        longitude = ['item obrigatório', 'Local da propriedade ex: -16.87299919128418'];
+        state = ['item obrigatório', 'GO','DF',...];
+        has_bomb = ['item obrigatório', 'booleano'];
+        }
+ 

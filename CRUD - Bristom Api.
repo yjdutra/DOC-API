@@ -45,10 +45,10 @@ Legenda:
     🖊️ const { email, phone, password, name, role, prop } = req.body;
 
         roles = ['admin', 'user', 'integrator', 'system'];
-        prop = ['id de uma propriedade, Caso possuir, Já cria a associação em PropertiesUsers'];
-        email = ['item obrigatório', 'example@example.com' ];
-        phone = ['item obrigatório', '+5562111111111' ];
-        password = ['item obrigatório', 'example.1' ];
+        prop = [id de uma propriedade, Caso possuir, Já cria a associação em PropertiesUsers];
+        email = [item obrigatório, ex:'example@example.com'];
+        phone = [item obrigatório, ex:'+5562111111111' ];
+        password = [item obrigatório, ex:'example.1' ];
         
 
     📑 index
@@ -66,7 +66,7 @@ Legenda:
     🕸️ GET 
     🖊️ const { user_id } = req.params;
 
-        user_id = ['Id do usuário no banco remoto'];
+        user_id = [Id do usuário no banco remoto];
 
 
     📑 update
@@ -77,12 +77,12 @@ Legenda:
     🖊️ const { email, phone, password, role, profile_picture, name } = req.body;
        const { user_id } = req.params;
 
-        email = ['Novo email', 'example@example.com' ];
-        phone = ['Novo phone', '+5562111111111' ];
-        password = ['Nova senha', 'example.1' ];        
         roles = ['admin', 'user', 'integrator', 'system'];
-        user_id = ['Id do usuário no banco remoto'];
-        name = ['Novo nome'];
+        email = [Novo email, ex:'example@example.com' ];
+        phone = [Novo phone, ex:'+5562111111111' ];
+        password = [Nova senha, ex:'example.1' ];        
+        user_id = [Id do usuário no banco remoto];
+        name = [Novo nome];
 
 
     📑 delete
@@ -92,7 +92,7 @@ Legenda:
     🕸️ DELETE 
     🖊️ const { user_id } = req.params;
 
-        user_id = ['Id do usuário no banco remoto'];
+        user_id = [Id do usuário no banco remoto];
 
 
     📑 updatePassword
@@ -103,8 +103,8 @@ Legenda:
     🖊️ const { user_id } = req.params;
        const { password } = req.body;
 
-        user_id = ['Id do usuário no banco remoto'];
-        password = ['Nova senha'];
+        user_id = [Id do usuário no banco remoto];
+        password = [Nova senha];
 
 
 
@@ -115,9 +115,9 @@ Legenda:
     🕸️ PATCH 
     🖊️ const { email, property, name } = req.body;
 
-        property = ['item obrigatório', 'id da propriedade recém criada pelo técnico'];
-        email = ['item obrigatório', 'example@example.com' ];
-        name = ['item obrigatório', 'nome do cliente' ];
+        property = [item obrigatório, id da propriedade recém criada pelo técnico];
+        email = [item obrigatório, ex: 'example@example.com' ];
+        name = [item obrigatório, ex: 'nome do cliente' ];
         }
         
 👉 Location (Propriedade) {
@@ -129,11 +129,11 @@ Legenda:
     🕸️ POST  
     🖊️ const { name, latitude, longitude, has_bomb, user_id, state } = req.body;
 
-        name = ['item obrigatório', 'nome da propriedade'];
-        latitude/longitude = ['Local da propriedade', '-16.87299919128418'];
-        has_bomb = ['item obrigatório', 'booleano que indica se a propriedade possui bomba ou não' ];
-        user_id = ['item obrigatório', 'id do usuario no banco remoto' ];
-        state = ['item obrigatório', 'GO','DF'... ];
+        name = [item obrigatório, nome da propriedade];
+        latitude/longitude = [Local da propriedade, ex: '-16.87299919128418'];
+        has_bomb = [item obrigatório, booleano que indica se a propriedade possui bomba ou não ];
+        user_id = [item obrigatório, id do usuario no banco remoto ];
+        state = [item obrigatório, ex: 'GO','DF'... ];
         
 
     📑 index
@@ -144,7 +144,7 @@ Legenda:
     🖊️  const { id: user_id } = req.payload;
 		const { active } = req.query;
 
-         active = ['Filtra as propriedades por ativas ou por todas.'];
+         active = [Filtra as propriedades por ativas ou por todas.];
 
 
     📑 show
@@ -154,7 +154,7 @@ Legenda:
     🕸️ GET 
     🖊️ const { id } = req.params;
 
-        id = ['Id da propriedade no banco remoto'];
+        id = [Id da propriedade no banco remoto];
 
 
     📑 update
@@ -166,16 +166,16 @@ Legenda:
 	   const { role } = req.payload as UserToken;
 	   const { id } = req.params;
 
-        name = ['Novo nome'];
-        has_bomb = ['booleano que indica se a propriedade possui bomba ou não' ];
-        state = ['Novo estado', 'DF' ];
-        active = ['Novo phone', '+5562111111111' ];
-        password = ['booleano que indica se a propriedade possui bomba ou não' ];
-        lat/lon =  ['Local da propriedade', '-16.87299919128418'];        
+        name = [Novo nome];
+        has_bomb = [booleano que indica se a propriedade possui bomba ou não];
+        state = [Novo estado, ex: 'DF' ];
+        active = [Novo phone, ex: '+5562111111111' ];
+        password = [booleano que indica se a propriedade possui bomba ou não ];
+        lat/lon =  [Local da propriedade, ex: '-16.87299919128418'];        
         
         roles = ['admin', 'user', 'integrator', 'system'];
         
-        id = ['Id da propriedade no banco remoto'];
+        id = [Id da propriedade no banco remoto];
 
 
     📑 delete
@@ -185,7 +185,7 @@ Legenda:
     🕸️ DELETE 
     🖊️ const { id } = req.params;
 
-        user_id = ['Id da propriedade no banco remoto'];
+        user_id = [Id da propriedade no banco remoto];
 
 
     📑 fullIndex
@@ -203,8 +203,8 @@ Legenda:
     🕸️ POST 
     🖊️ const { user_id, prop_id } = req.body;
 
-        prop_id = ['item obrigatório', 'id da propriedade'];
-        user_id = ['item obrigatório', 'example@example.com'];
+        prop_id = [item obrigatório, 'id da propriedade'];
+        user_id = [item obrigatório, 'example@example.com'];
         }
 
 
@@ -215,11 +215,11 @@ Legenda:
     🕸️ PATCH 
     🖊️ const { name, latitude, longitude, state, has_bomb } = req.body;
 
-        name = ['item obrigatório', 'nome da Propriedade'];
-        latitude = ['item obrigatório', 'Local da propriedade ex: -16.87299919128418'];
-        longitude = ['item obrigatório', 'Local da propriedade ex: -16.87299919128418'];
-        state = ['item obrigatório', 'GO','DF',...];
-        has_bomb = ['item obrigatório', 'booleano'];
+        name = [item obrigatório, 'nome da Propriedade'];
+        latitude = [item obrigatório, 'Local da propriedade ex: -16.87299919128418'];
+        longitude = [item obrigatório, 'Local da propriedade ex: -16.87299919128418'];
+        state = [item obrigatório, 'GO','DF',...];
+        has_bomb = [item obrigatório, 'booleano'];
         }
  
 👉 Equipments (Equipamentos) {
@@ -238,16 +238,16 @@ Legenda:
     🕸️ POST  
     🖊️ const { chip_id, mac, series_number } = req.body;
 
-        chip_id = ['item obrigatório', 'Numero de chip id do equipamento'];
-        mac = ['item obrigatório', 'mac sta do equipamento,(para ultralogs utilizar mac ble)'];
-        series_number = ['item obrigatório', 'Numero de serie do equipamento, identifica o equipamento
+        chip_id = [item obrigatório, 'Numero de chip id do equipamento'];
+        mac = [item obrigatório, 'mac sta do equipamento,(para ultralogs utilizar mac ble)'];
+        series_number = [item obrigatório, 'Numero de serie do equipamento, identifica o equipamento
         com base na sigla que acompanha (MP|GW|ST|SL|SP|GP|UL)' ];
         
 
     📑 index
     💬 Retorna todos os equipamentos. 
     📂 controllers/EquipmentsController.index
-    🔗 https://api.bristom.com/locations
+    🔗 https://api.bristom.com/equipments
     🕸️ GET
     🖊️  
 
@@ -255,7 +255,7 @@ Legenda:
     📑 associate
     💬 Retorna uma propriedade correspondente ao id informado.
     📂 controllers/.show
-    🔗 https://api.bristom.com/locations/:id
+    🔗 https://api.bristom.com/equipments/:id
     🕸️ GET 
     🖊️ const { id } = req.params;
 
@@ -264,16 +264,82 @@ Legenda:
     📑 status
     💬 Verifica se já existe uma propriedade com esses dados.
     📂 controllers/LocationController.associate
-    🔗 https://api.bristom.com/locations
+    🔗 https://api.bristom.com/equipments
     🕸️ PATCH 
     🖊️ const { name, latitude, longitude, state, has_bomb } = req.body;
 
-        name = ['item obrigatório', 'nome da Propriedade'];
-        latitude = ['item obrigatório', 'Local da propriedade ex: -16.87299919128418'];
-        longitude = ['item obrigatório', 'Local da propriedade ex: -16.87299919128418'];
-        state = ['item obrigatório', 'GO','DF',...];
-        has_bomb = ['item obrigatório', 'booleano'];
+        name = [item obrigatório, 'nome da Propriedade'];
+        latitude = [item obrigatório, 'Local da propriedade ex: -16.87299919128418'];
+        longitude = [item obrigatório, 'Local da propriedade ex: -16.87299919128418'];
+        state = [item obrigatório, 'GO','DF',...];
+        has_bomb = [item obrigatório, 'booleano'];
         }
 
+👉 Gateway  {
+
+    📑 store
+    💬 Cria novos gateways a uma propriedade já existente
+    📂 controllers/GatewayController.store
+    🔗 https://api.bristom.com/gateway
+    🕸️ POST  
+    🖊️ const { chip_id, mac, prop_id, series_number } = req.body;
+
+         chip_id= [item obrigatório, Numero de chip id do equipamento];
+         mac= [item obrigatório, ex: '-16.87299919128418'];
+         prop_id= [item obrigatório, Propriedade a qual o Gateway esta conectado ];
+         series_number= [item obrigatório, Numero de serie de identificação do equipamento ];
+
+    📑 index
+    💬 Retorna os Gateways de uma propriedade com base no id da propriedade. 
+    📂 controllers/GatewayController.index
+    🔗 https://api.bristom.com/gateway
+    🕸️ GET
+    🖊️ const { prop } = req.query;
+        
+        prop = prop_id, id da propriedade.
+
+    📑 show
+    💬 Busca um Gateway pelo seu id
+    📂 controllers/.show
+    🔗 https://api.bristom.com/gateway/:id
+    🕸️ GET 
+    🖊️ const { id } = req.params;
+
+        id = ['Id do gateway no banco remoto'];
+
+
+    📑 update
+    💬 Modifica informações de algum gateway.
+    📂 controllers/GatewayController.update
+    🔗 https://api.bristom.com/gateway/:id
+    🕸️ PUT 
+    🖊️ const { chip_id, mac } = req.body;
+        const { id } = req.params;
+
+        chip_id= [item obrigatório, Numero de chip id do equipamento];'
+        mac= [item obrigatório, ex: '-16.87299919128418'];'
+
+
+    📑 delete
+    💬 Deleta o gateway correspondente ao id informado.
+    📂 controllers/GatewayController.delete
+    🔗 https://api.bristom.com/gateway/:id
+    🕸️ DELETE 
+    🖊️ const { id } = req.params;
+
+         id = ['Id do gateway no banco remoto'];
+
+
+    📑 associate
+    💬 Associa um Gateway a uam propriedade.
+    📂 controllers/GatewayController.associate
+    🔗 https://api.bristom.com/associate/property
+    🕸️ POST 
+    🖊️ const { prop_id, series_number } = req.body;
+
+        prop_id = [item obrigatório, 'id da propriedade'];
+        series_number = [item obrigatório, 'example@example.com'];
+        }
+ 
 
  

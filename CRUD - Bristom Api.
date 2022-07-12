@@ -1,5 +1,15 @@
 CRUD - Bristom Api.
 
+Legenda:
+
+👉 Controller 
+
+📑 Nome do Methodo
+💬 Descrição
+📂 Localização
+🔗 EndPoint
+🕸️ Requisição http
+🖊️ Itens Necessários.
 
 👉 Login && Logout. {
  
@@ -234,7 +244,7 @@ CRUD - Bristom Api.
         com base na sigla que acompanha (MP|GW|ST|SL|SP|GP|UL)' ];
         
 
-❗❗📑 index
+    📑 index
     💬 Retorna todos os equipamentos. 
     📂 controllers/EquipmentsController.index
     🔗 https://api.bristom.com/locations
@@ -242,7 +252,7 @@ CRUD - Bristom Api.
     🖊️  
 
 
-    📑 show
+    📑 associate
     💬 Retorna uma propriedade correspondente ao id informado.
     📂 controllers/.show
     🔗 https://api.bristom.com/locations/:id
@@ -250,58 +260,6 @@ CRUD - Bristom Api.
     🖊️ const { id } = req.params;
 
         id = ['Id da propriedade no banco remoto'];
-
-
-    📑 update
-    💬 Modifica informações de alguma propriedade.
-    📂 controllers/LocationController.update
-    🔗 https://api.bristom.com/locations/:id
-    🕸️ PUT 
-    🖊️ const { name, has_bomb, state, active, lat, lon } = req.body;
-	   const { role } = req.payload as UserToken;
-	   const { id } = req.params;
-
-        name = ['Novo nome'];
-        has_bomb = ['booleano que indica se a propriedade possui bomba ou não' ];
-        state = ['Novo estado', 'DF' ];
-        active = ['Novo phone', '+5562111111111' ];
-        password = ['booleano que indica se a propriedade possui bomba ou não' ];
-        lat/lon =  ['Local da propriedade', '-16.87299919128418'];        
-        
-        roles = ['admin', 'user', 'integrator', 'system'];
-        
-        id = ['Id da propriedade no banco remoto'];
-
-
-    📑 delete
-    💬 Deleta a propriedade correspondente ao id informado.
-    📂 controllers/LocationController.delete
-    🔗 https://api.bristom.com/users/user_id
-    🕸️ DELETE 
-    🖊️ const { id } = req.params;
-
-        user_id = ['Id da propriedade no banco remoto'];
-
-
-    📑 fullIndex
-    💬 retorna todas as propriedades.
-    📂 controllers/LocationController.fullIndex
-    🔗 https://api.bristom.com/weather/locations
-    🕸️ GET
-    🖊️ --
-
-
-    📑 associate
-    💬 Associa um Usuario a uma propriedade.
-    📂 controllers/LocationController.associate
-    🔗 https://api.bristom.com/associate/property
-    🕸️ POST 
-    🖊️ const { user_id, prop_id } = req.body;
-
-        prop_id = ['item obrigatório', 'id da propriedade'];
-        user_id = ['item obrigatório', 'example@example.com'];
-        }
-
 
     📑 status
     💬 Verifica se já existe uma propriedade com esses dados.
@@ -316,4 +274,6 @@ CRUD - Bristom Api.
         state = ['item obrigatório', 'GO','DF',...];
         has_bomb = ['item obrigatório', 'booleano'];
         }
+
+
  
